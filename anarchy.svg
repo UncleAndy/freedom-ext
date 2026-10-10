@@ -1,0 +1,18 @@
+<svg xmlns="http://w3.org" viewBox="0 0 100 100">
+  <style>
+    /* Задаем неоново-желтый цвет и толщину линий */
+    .anarchy-line {
+      stroke: #FFEA00;
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+  </style>
+
+  <!-- Окружность (буква O) -->
+  <circle class="anarchy-line" cx="50" cy="53" r="38" />
+
+  <!-- Буква А, выходящая за границы -->
+  <path class="anarchy-line" d="M50 8 L20 92 M50 8 L80 92 M12 55 L88 55" />
+</svg>
