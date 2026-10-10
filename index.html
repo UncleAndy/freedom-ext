@@ -1,128 +1,461 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freedom-Ext | Манифест расширения свободы</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        header {
-            text-align: center;
-            border-bottom: 1px solid #21262d;
-            padding-bottom: 30px;
-            margin-bottom: 40px;
-        }
-        h1 {
-            color: #f0f6fc;
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-        }
-        .subtitle {
-            color: #8b949e;
-            font-size: 1.2rem;
-            margin: 0;
-            font-style: italic;
-        }
-        h2 {
-            color: #58a6ff;
-            font-size: 1.5rem;
-            margin-top: 30px;
-            border-bottom: 1px solid #21262d;
-            padding-bottom: 8px;
-        }
-        p {
-            font-size: 1.1rem;
-        }
-        .highlight {
-            background: linear-gradient(180deg, rgba(56,139,253,0.15) 0%, rgba(56,139,253,0.05) 100%);
-            border: 1px solid #388bfd;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 25px 0;
-        }
-        .highlight strong {
-            color: #58a6ff;
-        }
-        .code-link {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 15px;
-            margin: 20px 0;
-            font-family: monospace;
-            font-size: 0.95rem;
-        }
-        .code-link a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
-        .code-link a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 60px;
-            text-align: center;
-            border-top: 1px solid #21262d;
-            padding-top: 20px;
-            color: #8b949e;
-            font-size: 0.9rem;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Расширение Свободы — манифест DOF-Core</title>
+<meta name="description" content="Freedom Extensions: манифест свободы, у которой есть единица измерения. Принципы DOF-Core — не декларация, а проверяемый стандарт решений.">
+<style>
+  :root {
+    --ink: #0f0f0e;
+    --surface: #171715;
+    --rule: #2c2b27;
+    --rule-soft: #221f1c;
+    --text: #ece9e4;
+    --muted: #a39d94;
+    --accent: #e0a44a;
+    --accent-dim: #8a6a34;
+    --measure: 47rem;
+    --serif: Georgia, 'Iowan Old Style', 'Times New Roman', 'Noto Serif', serif;
+    --mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: clamp(17px, 1.05vw + 15px, 19px);
+    line-height: 1.66;
+    text-wrap: pretty;
+  }
+
+  .wrap {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 5.5rem) clamp(1.25rem, 5vw, 2rem) 4rem;
+  }
+
+  /* ── Мастхед ─────────────────────────────────────────────── */
+  .masthead { border-bottom: 1px solid var(--rule); padding-bottom: 2rem; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.4rem;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 6.5vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.6rem;
+    font-weight: 400;
+  }
+  h1 .alt {
+    display: block;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-top: 0.9rem;
+    font-style: italic;
+  }
+  .lede {
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    color: var(--text);
+    margin: 1.6rem 0 0;
+  }
+  .lede strong { color: var(--accent); font-weight: 400; }
+  .byline {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-top: 2rem;
+  }
+
+  /* ── Секции ──────────────────────────────────────────────── */
+  section { margin-top: clamp(3rem, 7vw, 5rem); }
+  h2 {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+  }
+  h2 .num {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--accent-dim);
+    margin-bottom: 0.7rem;
+  }
+  h3 {
+    font-size: 1.06rem;
+    letter-spacing: 0.01em;
+    margin: 2.4rem 0 0.5rem;
+  }
+  p { margin: 0 0 1.15rem; }
+  p:last-child { margin-bottom: 0; }
+
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); }
+  a:hover { border-bottom-color: var(--accent); }
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  em { font-style: italic; color: #f5f2ec; }
+  strong { font-weight: 400; color: #fff; }
+
+  /* ── Аксиомы ─────────────────────────────────────────────── */
+  .axioms { margin-top: 1rem; }
+  .axiom {
+    display: grid;
+    grid-template-columns: 3.6rem 1fr;
+    gap: 0 1.2rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .axiom:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .axiom .n {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--accent);
+    padding-top: 0.15rem;
+  }
+  .axiom .name { font-size: 1.14rem; margin: 0 0 0.45rem; }
+  .axiom .norm {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    line-height: 1.72;
+    color: var(--muted);
+    margin: 0 0 0.9rem;
+    padding-left: 0.85rem;
+    border-left: 1px solid var(--rule);
+  }
+  .axiom p { margin-bottom: 0.7rem; }
+  .axiom p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 560px) {
+    .axiom { grid-template-columns: 1fr; gap: 0.5rem; }
+    .axiom .n { padding-top: 0; }
+  }
+
+  /* ── Формульная плита (одна на страницу) ─────────────────── */
+  .plate {
+    margin: 2rem 0;
+    padding: 1.6rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+  }
+  .plate .f {
+    font-family: var(--mono);
+    font-size: clamp(0.82rem, 1.4vw, 0.95rem);
+    line-height: 1.8;
+    color: #f6f3ee;
+    overflow-x: auto;
+    white-space: pre;
+    margin: 0 0 0.9rem;
+  }
+  .plate .cap {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  .plate .cap + .cap { margin-top: 0.45rem; }
+
+  /* ── Граница свободы: два голоса ─────────────────────────── */
+  .boundary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+    margin: 1.5rem 0 0;
+  }
+  .boundary > div { padding-top: 1.1rem; border-top: 2px solid var(--rule); }
+  .boundary > div.yes { border-top-color: var(--accent); }
+  .boundary .tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.7rem;
+  }
+  .boundary .yes .tag { color: var(--accent); }
+  @media (max-width: 620px) { .boundary { grid-template-columns: 1fr; gap: 1.6rem; } }
+
+  /* ── Таблица проверки ────────────────────────────────────── */
+  .check { width: 100%; border-collapse: collapse; margin: 1.4rem 0 0; font-size: 0.92rem; }
+  .check th, .check td { text-align: left; padding: 0.72rem 0.9rem 0.72rem 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  .check th { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+  .check td:first-child { width: 40%; color: var(--muted); }
+  .check code { font-family: var(--mono); font-size: 0.8rem; color: #f6f3ee; word-break: break-all; }
+  .table-scroll { overflow-x: auto; }
+
+  /* ── Практика ────────────────────────────────────────────── */
+  .practice { margin: 1.2rem 0 0; padding: 0; list-style: none; counter-reset: p; }
+  .practice li {
+    counter-increment: p;
+    padding: 1.05rem 0 1.05rem 2.6rem;
+    border-top: 1px solid var(--rule-soft);
+    position: relative;
+  }
+  .practice li:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .practice li::before {
+    content: counter(p);
+    position: absolute;
+    left: 0;
+    top: 1.05rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+  }
+  .practice b { font-weight: 400; color: #fff; }
+
+  /* ── Футер ───────────────────────────────────────────────── */
+  footer {
+    margin-top: clamp(3.5rem, 8vw, 6rem);
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.87rem;
+    color: var(--muted);
+  }
+  footer p { margin-bottom: 0.6rem; }
+  .src { font-family: var(--mono); font-size: 0.78rem; line-height: 1.9; }
+  .src a { border-bottom-color: transparent; }
+  .src a:hover { border-bottom-color: var(--accent-dim); }
+
+  /* ── Печать ──────────────────────────────────────────────── */
+  @media print {
+    :root { --ink: #fff; --surface: #fff; --text: #111; --muted: #444; --accent: #7a5410; --rule: #bbb; --rule-soft: #ddd; }
+    body { font-size: 12pt; }
+    .wrap { max-width: none; padding: 0; }
+    a { border-bottom: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
 </head>
 <body>
+<div class="wrap">
 
-    <div class="container">
-        <header>
-            <h1>Freedom-Ext</h1>
-            <p class="subtitle">Freedom eXtension & Multiplication</p>
-        </header>
+  <header class="masthead">
+    <p class="eyebrow">DOF-Core · Freedom Extensions</p>
+    <h1>Расширение Свободы
+      <span class="alt">Freedom Extensions</span>
+    </h1>
+    <p class="lede">Свободу можно не только отстаивать. Её можно <strong>измерять</strong> — и тогда спор о том, где кончается моя свобода и начинается чужая, перестаёт быть спором о вкусе.</p>
+    <p class="byline">Манифест версии 1 · октябрь 2026 · Andrei Velikoredchanin</p>
+  </header>
 
-        <main>
-            <section>
-                <h2>Наша главная цель</h2>
-                <p>Мы привыкли защищать текущие права и свободы. Но сохранять статус-кво в меняющемся мире — значит медленно отступать. Мы верим, что свободу нужно не просто удерживать. Ее необходимо постоянно развивать, масштабировать и приумножать в геометрической прогрессии.</p>
-            </section>
+  <main>
 
-            <section class="highlight">
-                <h2>Принцип Freedom Multiplier</h2>
-                <p>В основе нашего движения лежит идея <strong>Множителя Свободы</strong>. Любое общественное устройство, технология, закон или личный выбор должны оцениваться по одному фундаментальному критерию: <em>увеличивает ли это количество независимых степеней свободы для человека и общества, или оставляет их прежними?</em></p>
-            </section>
+    <section>
+      <h2><span class="num">01</span>Спор, который нечем решить</h2>
+      <p>«Твоя свобода кончается там, где начинается свобода другого». Фраза знакома каждому и не работает почти никогда. В ней нет числа. Где именно кончается? На сколько? Кто считает? Пока ответа нет, границу назначает тот, у кого больше силы, денег или терпения — а «свобода» остаётся словом, которое каждый читает по-своему.</p>
+      <p>Мы утверждаем, что дело не в испорченности людей, а в отсутствии единицы измерения. Там, где величину нельзя посчитать, остаётся только мнение. Поэтому мы начинаем с определения, а не с призыва.</p>
+      <p><strong>Свобода — это множество путей.</strong> В стандарте DOF-Core степень свободы (Degree of Freedom, DoF) определяется как <em>число независимых, жизнеспособных путей развития, действия или перехода состояния, доступных сущности</em>. Не «сколько я хочу», не «насколько мне просторно» — а сколько у меня действительно есть вариантов, каждый из которых куда-то ведёт. Пожелание, которое невозможно исполнить, и путь, который обрывается через шаг, в этот счёт не входят.</p>
+      <p>Такой счёт можно вести у человека, у семьи, у компании, у города, у страны и у машины. Им можно сравнивать два решения до того, как они приняты.</p>
+    </section>
 
-            <section>
-                <h2>Математическое обоснование: DOF-CORE</h2>
-                <p>Философия Freedom-Ext — это не просто гуманитарная декларация. Она имеет под собой строгое научно-техническое обоснование, заложенное в проекте <strong>DOF-CORE</strong> (Degrees of Freedom Core).</p>
-                <p>Используя математический аппарат теории степеней свободы, <strong>DOF-CORE</strong> моделирует сложные системы и доказывает: стабильность, адаптивность и эволюционный потенциал любой структуры напрямую зависят от количества её независимых координат маневра. Принцип умножения свободы здесь выступает как строгий алгоритмический закон оптимального расширения векторов системы.</p>
-                
-                <div class="code-link">
-                    📦 Техническое ядро проекта доступно в репозитории: <br>
-                    🛡️ <a href="https://github.com/UncleAndy/dof-core" target="_blank">https://github.com/UncleAndy/dof-core</a>
-                </div>
-            </section>
+    <section>
+      <h2><span class="num">02</span>Семь принципов</h2>
+      <p>Это не поэтическая декларация. Это ядро стандарта: семь утверждений, дальше которых начинается математика. Английский текст — нормативный; русская строка под ним — рабочий перевод.</p>
 
-            <section>
-                <h2>Призыв к действию</h2>
-                <p>Этот манифест — живой волонтерский проект. Мы объединяем строгость математического моделирования и ценности свободы, чтобы создавать инструменты, расширяющие возможности каждого человека.</p>
-                <p>Если вы разделяете эти взгляды, вы можете внести свой вклад: предлагайте правки к тексту манифеста, развивайте социальную философию или участвуйте в программировании математического ядра проекта.</p>
-            </section>
-        </main>
+      <div class="axioms">
 
-        <footer>
-            <p>© Freedom-Ext Movement & DOF-CORE. Открытый волонтерский проект.</p>
-        </footer>
-    </div>
+        <div class="axiom">
+          <div class="n">1</div>
+          <div>
+            <p class="name">Будущая возможность</p>
+            <p class="norm">The fundamental objective is to maximize the total future degrees of freedom (DoF) of the system and its constituent entities, while preserving the viability and independence of their future state spaces.</p>
+            <p>Цель — не максимум сегодняшней выгоды, а максимум будущих путей: у системы в целом и у каждой её части. Выгода, купленная ценой чужих возможностей, целью не является.</p>
+          </div>
+        </div>
 
+        <div class="axiom">
+          <div class="n">2</div>
+          <div>
+            <p class="name">Автономия сущности</p>
+            <p class="norm">Every distinguishable part of a system possessing its own future state space must be treated as a distinct, non-interchangeable bearer of that space.</p>
+            <p>У каждой части системы — своё будущее, и оно не взаимозаменяемо. Людей нельзя складывать в «население» и усреднять: у каждого свой набор путей, и один носитель не заменяет другого.</p>
+          </div>
+        </div>
+
+        <div class="axiom">
+          <div class="n">3</div>
+          <div>
+            <p class="name">Некомпенсируемость</p>
+            <p class="norm">An increase of DoF in one entity or subgroup does not justify the irreversible collapse of DoF belonging to another. The system must prevent localized optimization that results in systemic structural liquidation.</p>
+            <p>Рост у одного не оправдывает необратимый коллапс у другого. Это и есть математическая форма фразы, с которой мы начали: чужая свобода — не ресурс для моей.</p>
+          </div>
+        </div>
+
+        <div class="axiom">
+          <div class="n">4</div>
+          <div>
+            <p class="name">Обратимость</p>
+            <p class="norm">When comparable system configurations are possible, prefer the path or transformation that preserves the highest number of options for state inversion, reconsideration, and recovery.</p>
+            <p>Где можно выбрать — выбирай то, что легче отменить. Ошибка, которую можно исправить, дешевле правильного решения, которое нельзя пересмотреть.</p>
+          </div>
+        </div>
+
+        <div class="axiom">
+          <div class="n">5</div>
+          <div>
+            <p class="name">Неизвестность и худший случай</p>
+            <p class="norm">When the consequences of an action are uncertain, prefer actions whose plausible outcomes preserve the greatest future DoF under the least favourable plausible outcome — the worst case, never an average. Do not assume unknown possibilities have zero DoF.</p>
+            <p>Считать надо худший разумный исход, а не средний: выгода при одном прочтении не покрывает чужой необратимый коллапс при другом. И незнание — не ноль: если мы чего-то не разглядели, это не значит, что там нет возможностей.</p>
+          </div>
+        </div>
+
+        <div class="axiom">
+          <div class="n">6</div>
+          <div>
+            <p class="name">Расширение и автокатализ</p>
+            <p class="norm">Prefer actions and state configurations that increase the autonomous capacity of internal entities and sub-systems to generate further stable future possibilities.</p>
+            <p>Самое ценное действие — то, после которого возможностей становится больше не только у тебя, но и у других: они сами начинают производить новые пути. Это единственный вид роста, который стандарт считает полноценным.</p>
+          </div>
+        </div>
+
+        <div class="axiom">
+          <div class="n">7</div>
+          <div>
+            <p class="name">Архитектурная нейтральность</p>
+            <p class="norm">Do not reduce, isolate, or eliminate the DoF of an entity merely because its origin, internal architecture, structural values, or operational logic are unmapped or unknown.</p>
+            <p>Непонятное происхождение и чужое устройство — не повод урезать чью-то свободу. Неизмеренное не считается отсутствующим.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span>Где здесь математика, а не мораль</h2>
+      <p>Ценность этих принципов держится не на том, что они красивы. Они превращены в счёт, а счёт можно перепроверить.</p>
+
+      <div class="plate">
+        <p class="f">TotalDoF_index(S) = Σ ln( max(DoF(e), ε) )      ε = 10⁻⁶
+        e ∈ calc(S)</p>
+        <p class="cap">Индекс системы — сумма логарифмов степеней свободы всех сущностей, которые входят в расчётное множество. Логарифм — не украшение: сумма логарифмов есть логарифм произведения, то есть <em>произведение Нэша</em>, для которого в 1950 году доказано, что оно единственное удовлетворяет аксиомам справедливого соглашения.</p>
+        <p class="cap">И честно о природе этой величины: значения индекса отрицательны и смысла как «количество свободы» не имеют. Сравнивать по нему варианты можно, читать из него абсолютную цифру — нельзя. Это порядок предпочтения, а не мера счастья.</p>
+      </div>
+
+      <p>Дальше начинается то, ради чего это всё построено. У коллапса нет конечной цены:</p>
+
+      <div class="plate">
+        <p class="f">DoF(e) → 0   ⇒   ln(DoF(e)) → −∞
+        фильтр допустимости:  вариант недопустим, если D1 ≠ 0 или D2 ≠ 0 или D3 ≠ 0</p>
+        <p class="cap">D1 — число сущностей, которых вариант приводит к нулю; D2 — число путей, которые при этом закрываются навсегда; D3 — то же по критическим узлам. Пока хотя бы одна из величин не ноль, вариант недопустим — и он не сравнивается с остальными. Не «менее предпочтителен». <em>Не допущен</em>.</p>
+      </div>
+
+      <p>Три следствия, которые и делают из этого принцип, а не пожелание.</p>
+      <p><strong>Первое: коллапс нельзя отыграть.</strong> Арифметику удаления сущности из суммы закрыли отдельным требованием — множество расчёта замораживается. В стандарте это сказано прямо: без заморозки вычеркнуть неудобную сущность из счёта было бы <em>выгодно</em>, потому что её слагаемое неположительно, а исключённая даёт ровно ноль. То есть старый добрый способ «убрать проблему вместе с человеком» получил бы математическое обоснование. Заморозка отнимает его: кто был в счёте, тот в нём остаётся.</p>
+      <p><strong>Второе: агрессор — это не мнение.</strong> Ярлык «источник коллапса» присваивается только по наблюдаемому, машинно проверяемому акту, которым сущность привела к нулю того, кто иначе был бы посчитан. Никакой «оценки полезности», никаких решений «по ощущению угрозы». И только тогда систему защищают изоляцией — стандарт прямо оговаривает, что это не нарушение третьего принципа, а сохранение самой конструкции.</p>
+      <p><strong>Третье: у действий есть порог.</strong> Решение принимается лишь тогда, когда выигрыш строго превышает цену перестройки: остановка незавершённого процесса, разворот курса, брошенная работа — всё это входит в счёт как отдельная потеря. Плюс остаётся вариант «ничего не делать»: бездействие — полноценный кандидат, с которым сравниваются все прочие. Молчаливого разрешения действовать «раз уж собрались» в стандарте нет.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">04</span>Граница двух свобод</h2>
+      <p>Теперь вернёмся к фразе, с которой начали. У неё есть два прочтения, и разница между ними — вся суть.</p>
+
+      <div class="boundary">
+        <div>
+          <span class="tag">Как обычно понимают</span>
+          <p>Свобода — это моё пространство, у которого есть край; край упирается в чужое; значит, свободы всегда не хватает и её надо делить. Дальше — торг, в котором выигрыш одного и есть проигрыш другого.</p>
+        </div>
+        <div class="yes">
+          <span class="tag">Как это устроено в счёте</span>
+          <p>Свобода — это число путей. Пути бывают общими: дорога, язык, знание, мирный договор, открытый стандарт. Их нельзя поделить — их можно только вместе построить или вместе потерять. И тогда рост возможностей одного перестаёт быть убытком другого.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:2rem">Третье правило запрещает именно необратимое: не «мне неудобно, потому что рядом со мной кто-то живёт», а «я закрываю ему будущее, чтобы открыть своё». Разницу видно, потому что она выражена числами: сколько сущностей уходит в ноль, сколько путей закрывается навсегда. Это и есть работающая формулировка границы — та самая, которую искали в старой фразе.</p>
+      <p>А шестое правило добавляет к запрету положительную половину. Если расширение увеличивает возможности всех участников, индекс растёт, и математика его поощряет. Свобода не обязана быть игрой с нулевой суммой: произведение Нэша — это ровно та функция, которая вознаграждает взаимное расширение и наказывает односторонний захват. Отсюда и название: не «защита свободы», а её <em>расширение</em>.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span>Что с этим делать человеку</h2>
+      <p>Стандарт писан для машин и организаций, но применим к обычным решениям: уехать или остаться, сокращать или доучивать, закрывать или перестраивать. Пять вопросов, которые работают и без всякой математики — включая последний, самый неприятный.</p>
+      <ol class="practice">
+        <li><b>Сколько у меня на самом деле путей?</b> Посчитайте варианты, каждый из которых действительно жизнеспособен — не «теоретически можно», а «дойду и выдержу». Один вариант — это не выбор, а коридор.</li>
+        <li><b>Что из этого я смогу отменить?</b> Если цена ошибки — необратимость, решение должно быть дороже обосновано. Где можно оставить дверь открытой — оставьте.</li>
+        <li><b>Что будет в худшем разумном случае?</b> Не в среднем, не «скорее всего», а в том прочтении, где всё пойдёт против вас. Тогда и выбирайте, а не по радужному сценарию.</li>
+        <li><b>Чего я не знаю — и не считаю ли я это нулём?</b> Неизмеренное и непонятное не превращается в пустоту только потому, что мы его не разглядели. Это относится и к людям, чей уклад нам чужд.</li>
+        <li><b>Выигрываю ли я за счёт чужого необратимого нуля?</b> Если да — пересчитайте. По этому счёту такой выигрыш не существует: он не допускается, а не осуждается.</li>
+      </ol>
+      <p style="margin-top:1.6rem">Тот, кто хочет считать строже, найдёт измерительные процедуры в <span class="src"><a href="https://github.com/UncleAndy/dof-core/blob/main/references/dof-assessment-toolkit.md">references/dof-assessment-toolkit.md</a></span> — там описано, как оценивать DoF человека, подразделения и системы, не выдумывая коэффициенты на глаз.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span>Почему это не выдумка</h2>
+      <p>Манифест, который нельзя проверить, стоит ровно столько, сколько стоит обещание. Поэтому всё, на что мы ссылаемся, лежит в открытом репозитории — с версией, отпечатком и прогоном.</p>
+
+      <div class="table-scroll">
+        <table class="check">
+          <thead>
+            <tr><th>Что</th><th>Чем подтверждается</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Текст стандарта</td>
+              <td>Релиз <code>v0.11</code>, тег <code>v0.11</code> → коммит <code>9d66541</code>; отпечаток нормативного файла:<br><code>sha256 4211950fc708cbc6404ad47c2cfbbddadd7d22f5ff3b5b2647a5f3859449c873</code></td>
+            </tr>
+            <tr>
+              <td>Совместимые реализации</td>
+              <td>Четыре независимых порта — Python, Go, Rust, C++ — проходят общую проверку <code>patterns/tools/verify_ports.sh</code>. По данным релиза: 112, 83, 83 и 84 проверки, падений нет. Повторный прогон даёт <strong>VERIFIED</strong> и совпадение замороженных дайджестов.</td>
+            </tr>
+            <tr>
+              <td>Аксиомы и исчисление решений</td>
+              <td><code>SKILL.md</code> — семь аксиом и порядок вычисления; <code>DOF-SPEC.md</code> — нормативный контракт: индекс §4.1, множество расчёта и источники коллапса §4.2, фильтр допустимости §4.5, достижимость §4.9.</td>
+            </tr>
+            <tr>
+              <td>Лицензия и запрет чёрного ящика</td>
+              <td>CC BY-SA 4.0 с обязательным требованием <em>Proof of Implementation</em>: любое применение стандарта обязано уметь показать счёт, по которому принято решение. Скрытая подмена логики — нарушение лицензии, а не техническая деталь.</td>
+            </tr>
+            <tr>
+              <td>Живая проверка</td>
+              <td>Проект <em>DOF-Model</em> считает эти величины в модели мира: пути юнита, города, технологии, последствия удара, индекс системы. Формулировки на этой странице — из стандарта и из этих измерений; спорные числа публикуются вместе с процедурой, которой они получены.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:2rem">Мы не первые, кто говорит, что свобода — это возможности. У этой мысли есть признанная научная родословная, и мы на неё опираемся, а не делаем вид, что придумали её сами:</p>
+      <p class="src">
+        Wissner-Gross &amp; Freer. <em>Causal Entropic Forces</em>. Physical Review Letters, 2013 — системы, движимые максимизацией будущего пространства вариантов, сами приходят к адаптивному и защитному поведению.<br>
+        Polani, Salge &amp; Glackin. <em>Empowerment — an Introduction</em>, arXiv:1310.1863 — «empowerment» как канал между действиями и восприятием: внутренняя мотивация, не зависящая от задачи.<br>
+        Nash. <em>The Bargaining Problem</em>. Econometrica, 1950 — произведение полезностей как единственное решение, удовлетворяющее аксиомам справедливого соглашения.
+      </p>
+      <p>Наш вклад — не в том, что мы «придумали добро». Он в том, что свобода здесь стала величиной, у которой есть единица, правило сложения и запрет на подмену: счёт открыт, формула опубликована, реализаций четыре, и любая из них обязана показать, из чего сложилось её решение.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">07</span>Что дальше</h2>
+      <p>Это живой текст, и он не просит верить. Он просит проверять: считать, спорить, опровергать.</p>
+      <p>Полезны три вида участия. Первый — измерения: посчитайте свой случай по измерительным процедурам и покажите, где счёт расходится со здравым смыслом. Второй — контрпримеры: ситуация, где следование правилам даёт заведомо плохой результат, ценнее сотни одобрений. Третий — код: четыре порта существуют, чтобы стандарт не жил в одном человеке.</p>
+      <p><strong>И то, чего мы не обещаем.</strong> Этот манифест не гарантирует благоденствия и не заменяет политику, экономику и совесть. Он даёт другое: способ видеть, кто именно и чьими будущими возможностями платит за решение, — и запрет называть это неизбежностью. Всеобщее благополучие в этой системе не лозунг, а следствие: индекс растёт только тогда, когда путей становится больше у всех, кого считают. Обойти это правило нельзя, не выйдя из стандарта.</p>
+      <p>Исходник и нормативные документы: <a href="https://github.com/UncleAndy/dof-core">github.com/UncleAndy/dof-core</a>. Там же — как присылать правки.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Andrei Velikoredchanin. Текст манифеста — под лицензией CC BY-SA 4.0: используйте, переводите и развивайте, указывая автора и сохраняя ту же лицензию.</p>
+    <p>Нормативные документы стандарта — <span class="src">SKILL.md</span> (аксиомы) и <span class="src">DOF-SPEC.md</span> (контракт) — существуют только на английском: единственный авторитетный текст. Эта страница — изложение принципов и их оснований, а не часть стандарта.</p>
+  </footer>
+
+</div>
 </body>
 </html>
