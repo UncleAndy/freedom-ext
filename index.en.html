@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Freedom Extension — a plain-language manifesto explaining the seven principles of DOF-CORE.">
+  <title>Freedom Extension — Seven Principles · DOF-CORE</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --surface: #f6f8fa;
+      --text: #24292f;
+      --muted: #57606a;
+      --border: #d0d7de;
+      --link: #0969da;
+      --content-width: 780px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --surface: #161b22;
+        --text: #e6edf3;
+        --muted: #9198a1;
+        --border: #30363d;
+        --link: #58a6ff;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.72 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      width: min(var(--content-width), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 56px 0 40px;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 650;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 3.35rem);
+      letter-spacing: -.045em;
+      line-height: 1.1;
+    }
+    .lead {
+      margin: 24px 0 12px;
+      font-size: clamp(1.15rem, 3vw, 1.38rem);
+      line-height: 1.55;
+    }
+    .byline { margin: 0 0 42px; color: var(--muted); font-size: .94rem; }
+    h2 {
+      margin: 2.4em 0 .65em;
+      padding-bottom: .35em;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.55rem;
+      letter-spacing: -.025em;
+      line-height: 1.3;
+    }
+    h3 { margin: 1.45em 0 .35em; font-size: 1.15rem; line-height: 1.45; }
+    p { margin: .65em 0 1em; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .principles-intro { color: var(--muted); }
+    .principle { margin: 0; padding: 0 0 8px; }
+    .principle h3 { margin-top: 1.55em; }
+    .source-note {
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    footer {
+      margin-top: 42px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    footer p { margin: .45em 0; }
+    @media (max-width: 520px) {
+      main { width: calc(100% - 30px); padding-top: 34px; }
+      h2 { margin-top: 2em; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">A General Decision Standard · DOF-CORE</p>
+    <h1>Freedom Extension</h1>
+    <p class="lead">Freedom is the number of paths available to us. Not something we have once and for all, but the possibilities that remain open to us—and to those around us.</p>
+    <p class="byline">Manifesto · Andrei Velikoredchanin</p>
+
+    <section aria-labelledby="the-dispute">
+      <h2 id="the-dispute">A Dispute with No Way to Resolve It</h2>
+      <p>“Your freedom ends where another person’s begins.” Everyone has heard the phrase. The problem is that it gives us no measure: exactly where does it end, by how much, and who gets to decide? Without an answer, the boundary is set by whoever is stronger—and “freedom” remains a word everyone interprets differently.</p>
+      <p>We propose a simple definition. Freedom is the number of possible paths a person has that actually lead somewhere. Not “how much I want” or “how much room I have,” but how many options lie ahead and how many of them are meaningful: a path that ends at the very first step does not count.</p>
+      <p>This can be measured—for a person, a family, a city, a country, or a machine. Then a dispute about rights becomes more like a dispute about the balance in an account: it is settled by counting, not by shouting. The standard explains how the calculation works: <a href="https://github.com/UncleAndy/dof-core">DOF-CORE</a>.</p>
+    </section>
+
+    <section aria-labelledby="principles">
+      <h2 id="principles">Seven Basic Principles</h2>
+      <p class="principles-intro">Each principle answers a different question: how to measure benefit · how to count people · what must not be done · what to choose when options are equal · what to do with the unknown · where new possibilities come from · how to deal with what we do not understand.</p>
+
+      <article class="principle">
+        <h3>1. Future Benefit Matters More Than Immediate Gain</h3>
+        <p>A good choice is one that leaves you with more options, not fewer. Sometimes today’s gain consumes tomorrow’s: selling a tool to buy food may genuinely be necessary, but if you can no longer work afterward, you have become poorer, not richer. And this is not just about money: benefit is anything you will be able to use tomorrow. So first ask how many paths will remain after the decision.</p>
+      </article>
+
+      <article class="principle">
+        <h3>2. People Are Not a Herd</h3>
+        <p>One person cannot replace another. Even if the person who takes their place is better off, that is a different life, not the same one. So we cannot say “everyone is better off on average” if someone has lost everything: a house does not come back just because the neighbours have gained. The outcome is counted by name, not by average. People are not a population figure, a resource, or a unit in a report.</p>
+      </article>
+
+      <article class="principle">
+        <h3>3. Only What Benefits Each Person Counts</h3>
+        <p>You cannot build your future by taking someone else’s away. And “this will be better for everyone” does not justify it: things have not become better for the person who lost out. This is not about morality or who is good; it is simple arithmetic: in such an exchange, all that remains to count is the loss. Consent does not make the loss disappear either—even if someone is willing to give up their future, the loss is still a loss. The sole exception is someone who deliberately destroys other people’s possibilities—their lives, health, or freedom to act. They must be stopped and removed from the shared game, not simply “counted” in the overall result.</p>
+      </article>
+
+      <article class="principle">
+        <h3>4. Do Not Do What Cannot Be Undone</h3>
+        <p>When choosing between two roughly equal options, take the one that can be reversed. Making a mistake is not the end of the world: admit it and correct it. But a felled tree, a destroyed city, or a right surrendered forever cannot simply be restored. So take an irreversible action only when not taking it would cause a much greater loss than the action itself.</p>
+      </article>
+
+      <article class="principle">
+        <h3>5. The Unknown Is Not “Nothing”—It Is a Reason to Investigate</h3>
+        <p>What we do not know is simply what we do not know. That does not mean “there is nothing there” or “everything is fine”: the unknown cannot be counted as zero or treated as a dream; it tells us nothing. So we do not dismiss what is unfamiliar, and we do not try to profit from it. If a decision depends on something we do not know, find out first, then decide.</p>
+      </article>
+
+      <article class="principle">
+        <h3>6. Freedom Is Not Taken Away—It Is Expanded</h3>
+        <p>Freedom is not a pie that can only be divided. When someone creates something new—a medicine, a road, a tool—everyone gains possibilities, and no one has to lose theirs. So a good move creates rather than takes away. And what matters is not the number of options, but whether they work: ten roads leading nowhere are not freedom; one road that leads to other people is freedom.</p>
+      </article>
+
+      <article class="principle">
+        <h3>7. Not Understanding Someone Is a Reason for Dialogue, Not for Ignoring Them</h3>
+        <p>If we do not understand someone, that does not mean they are bad or can be dismissed. What we do not understand is a question, not a verdict: until we have investigated, we have no reason to reject them other than the fact that we do not know them. So misunderstanding is a reason to talk and find out—not a reason to rule them out.</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="source">
+      <h2 id="source">Source and Rationale</h2>
+      <p>These principles were not invented from scratch. They come from the open DOF-CORE standard, where freedom is expressed as a measurable quantity. The aim is not to calculate a “freedom level” for an entire country, but to consider the real paths available to a particular person, city, company, or machine. The standard also sets a strict rule concerning death: an option that destroys someone is excluded from comparison with the others during prediction.</p>
+      <p>The mathematics, formulas, and proofs live in DOF-CORE. Here, we present only their implications for everyday life.</p>
+      <p class="source-note">You do not have to take this on faith. The standard is open, versioned, and fingerprinted; four independent implementations pass a shared test suite; and the licence prohibits “black-box” use—every application must show how a decision was calculated. Code, documents, and mathematics: <a href="https://github.com/UncleAndy/dof-core">github.com/UncleAndy/dof-core</a>.</p>
+    </section>
+
+    <section aria-labelledby="what-now">
+      <h2 id="what-now">What Can We Do With This?</h2>
+      <p>How many paths do I really have, and how many of them are viable? What will I be able to undo if I am wrong? And am I gaining at the cost of someone else losing something they can never get back?</p>
+      <p>The last question is uncomfortable—and that is the point. If the answer is “yes,” there is nothing to count: under this measure, that kind of gain does not exist.</p>
+    </section>
+
+    <footer>
+      <p>© 2026 Andrei Velikoredchanin. <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> — use, translate, and develop this work, crediting the author and preserving the same licence.</p>
+      <p>Details, mathematics, and proofs are available in the <a href="https://github.com/UncleAndy/dof-core">DOF-CORE standard</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>
