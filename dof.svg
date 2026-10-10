@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    /* Глубокий темно-синий цвет неба для фона */
+    .sky-bg {
+      fill: #0A192F;
+    }
+
+    .sun-peace {
+      stroke: #FFEA00;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+  </style>
+
+  <!-- Фоновый круг (Небо) -->
+  <circle class="sky-bg" cx="50" cy="50" r="50" />
+
+  <!-- Центральный пацифик (кольцо и внутренние линии) -->
+  <circle class="sun-peace" cx="50" cy="50" r="22" />
+  <line class="sun-peace" x1="50" y1="28" x2="50" y2="72" />
+  <line class="sun-peace" x1="50" y1="50" x2="34.4" y2="65.6" />
+  <line class="sun-peace" x1="50" y1="50" x2="65.6" y2="65.6" />
+
+  <!-- Солнечные лучи, расходящиеся от кольца -->
+  <!-- Прямые лучи (Крест) -->
+  <line class="sun-peace" x1="50" y1="6"  x2="50" y2="18" />
+  <line class="sun-peace" x1="50" y1="82" x2="50" y2="94" />
+  <line class="sun-peace" x1="6"  y1="50" x2="18" y2="50" />
+  <line class="sun-peace" x1="82" y1="50" x2="94" y2="50" />
+
+  <!-- Диагональные лучи -->
+  <line class="sun-peace" x1="19" y1="19" x2="27.5" y2="27.5" />
+  <line class="sun-peace" x1="72.5" y1="72.5" x2="81" y2="81" />
+  <line class="sun-peace" x1="81" y1="19" x2="72.5" y2="27.5" />
+  <line class="sun-peace" x1="27.5" y1="72.5" x2="19" y2="81" />
+</svg>
