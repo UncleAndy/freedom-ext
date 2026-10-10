@@ -1,0 +1,12 @@
+1791648945176	geckodriver	INFO	Listening on 127.0.0.1:58611
+1791648945197	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/run/current-system/sw ... ss" "--remote-debugging-port" "50907" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileEjx9hy"
+*** You are running in headless mode.
+1791648945325	Marionette	INFO	Marionette enabled
+1791648945364	Marionette	INFO	Listening on port 43811
+WebDriver BiDi listening on ws://127.0.0.1:50907
+Read port: 43811
+1791648945426	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1791648946830	Marionette	INFO	Stopped listening on port 43811
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 50: TypeError: can't access property "QueryInterface", aWindow.docShell is null
+1791648947064	webdriver::server	INFO	Shutting down
