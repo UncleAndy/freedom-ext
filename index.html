@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Расширение Свободы — семь принципов</title>
-<meta name="description" content="Манифест «Расширение Свободы»: семь человеческих принципов о том, как не выигрывать за счёт чужого будущего.">
+<title>Freedom Extension — Seven Principles</title>
+<meta name="description" content="The Freedom Extension manifesto: seven human principles for not winning at the expense of someone else's future.">
 <link rel="icon" type="image/svg+xml" href="dof.svg">
 <style>
   :root {
@@ -18,7 +18,6 @@
     --measure: 44rem;
     --serif: Georgia, 'Iowan Old Style', 'Times New Roman', 'Noto Serif', serif;
   }
-
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
 
@@ -37,7 +36,6 @@
     margin: 0 auto;
     padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 2rem) 4rem;
   }
-
   header { border-bottom: 1px solid var(--rule); padding-bottom: 1.8rem; }
   .eyebrow {
     font-size: 0.78rem;
@@ -64,7 +62,6 @@
     margin-top: 1.8rem;
     letter-spacing: 0.02em;
   }
-
   section { margin-top: clamp(2.6rem, 6vw, 4rem); }
   h2 {
     font-size: clamp(1.4rem, 2.4vw, 1.8rem);
@@ -77,12 +74,34 @@
   p:last-child { margin-bottom: 0; }
   strong { font-weight: 400; color: #fff; }
   em { font-style: italic; color: #f5f2ec; }
-
   a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); }
   a:hover { border-bottom-color: var(--accent); }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-
-  /* Семь принципов: номер слева, текст справа */
+  /* Language switcher: the list lives in lang.js, the dropdown is built there */
+  .langbar { display: flex; justify-content: flex-end; margin: 0 0 2.2rem; }
+  .langbar select {
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: var(--serif);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23a39d94' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.55rem center;
+    background-size: 0.62rem 0.38rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.42rem 1.75rem 0.42rem 0.75rem;
+    cursor: pointer;
+  }
+  .langbar select:hover { color: var(--text); border-color: var(--accent-dim); }
+  .langbar select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .langbar option { background: var(--ink); color: var(--text); text-transform: none; letter-spacing: 0; }
+  .langbar noscript a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  /* Seven principles: number on the left, text on the right */
   .principles { margin: 1.6rem 0 0; padding: 0; list-style: none; counter-reset: p; }
   .principles li {
     counter-increment: p;
@@ -107,7 +126,6 @@
     color: #fff;
   }
   .principles p { margin: 0; }
-
   @media (max-width: 520px) {
     .principles li { grid-template-columns: 1fr; gap: 0.4rem; padding-left: 0; }
     .principles li::before { font-size: 1.1rem; }
@@ -127,107 +145,103 @@
     color: var(--muted);
   }
   footer p { margin-bottom: 0.55rem; }
-
   @media print {
     :root { --ink: #fff; --text: #111; --muted: #444; --accent: #7a5410; --rule: #bbb; --rule-soft: #ddd; }
     body { font-size: 12pt; }
     .wrap { max-width: none; padding: 0; }
     a { border-bottom: none; }
+    .langbar { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; animation: none !important; }
   }
 </style>
+<script src="lang.js" defer></script>
 </head>
 <body>
 <div class="wrap">
-
+  <div class="langbar" id="langbar">
+    <noscript><a href="index.ru.html" hreflang="ru" lang="ru">Русский</a></noscript>
+  </div>
   <header>
-    <p class="eyebrow">Общий стандарт решений · DOF-CORE</p>
-    <h1>Расширение Свободы</h1>
-    <p class="lede">Свобода — это <b>число доступных путей</b>. Не то, что у нас есть однажды и навсегда, а то, сколько у нас остаётся возможностей — и у нас, и у тех, кто рядом.</p>
-    <p class="byline">Манифест · Andrei Velikoredchanin</p>
+    <p class="eyebrow">A General Decision Standard · DOF-CORE</p>
+    <h1>Freedom Extension</h1>
+    <p class="lede">Freedom is the <b>number of available paths</b>. Not something we have once and for all, but the possibilities that remain open to us—and to those around us.</p>
+    <p class="byline">Manifesto · Andrei Velikoredchanin</p>
   </header>
 
   <main>
-
     <section>
-      <h2>Спор, который нечем решить</h2>
-      <p>«Твоя свобода кончается там, где начинается свобода другого». Фразу слышали все. Беда в том, что в ней нет числа: где именно кончается, на сколько, и кто это считает. Пока ответа нет, границу назначает тот, кто сильнее, — а «свобода» остаётся словом, которое каждый понимает по-своему.</p>
-      <p>Мы предлагаем простое определение. Свобода — это <strong>число возможных путей</strong>, которые у человека есть и которые действительно куда-то ведут. Не «сколько я хочу» и не «насколько мне просторно», а сколько передо мной вариантов и сколько из них имеет смысл: тот, что обрывается на первом шаге, в счёт не идёт.</p>
-      <p>Такое можно посчитать — у человека, у семьи, у города, у страны, у машины. И тогда спор о правах становится похож на спор о том, сколько денег на счету: его решают не громкостью, а счётом. Как именно считается — в стандарте <a href="https://github.com/UncleAndy/dof-core">DOF-CORE</a>.</p>
+      <h2>A Dispute with No Way to Resolve It</h2>
+      <p>“Your freedom ends where another person’s begins.” Everyone has heard the phrase. The problem is that it gives us no number: exactly where does it end, by how much, and who gets to decide? Until there is an answer, the boundary is set by whoever is stronger—and “freedom” remains a word everyone understands differently.</p>
+      <p>We propose a simple definition. Freedom is the <strong>number of possible paths</strong> a person has that actually lead somewhere. Not “how much I want” or “how much room I have,” but how many options lie ahead and how many of them make sense: a path that ends at the very first step does not count.</p>
+      <p>This can be counted—for a person, a family, a city, a country, or a machine. Then a dispute about rights becomes like a dispute about the balance in an account: it is settled by counting, not by shouting. The standard explains how the calculation works: <a href="https://github.com/UncleAndy/dof-core">DOF-CORE</a>.</p>
     </section>
-
     <section>
-      <h2>Семь базовых принципов</h2>
-      <p>Каждый пункт отвечает на свой вопрос: как считать выгоду · как считать людей · чего нельзя делать · что выбрать из равного · что делать с неизвестным · откуда берётся новое · как быть с непонятным.</p>
+      <h2>Seven Basic Principles</h2>
+      <p>Each principle answers a different question: how to count benefit · how to count people · what must not be done · what to choose when options are equal · what to do with the unknown · where new things come from · how to deal with what we do not understand.</p>
       <ol class="principles">
         <li>
           <div>
-            <h3><u>Будущая выгода важнее сиюминутной</u></h3>
-            <p>Хороший выбор — тот, после которого у тебя остаётся больше вариантов, а не меньше. Бывает, что сегодняшняя выгода съедает завтрашнюю: продать инструмент, чтобы поесть, иногда и правда нужно, но если после этого ты не можешь работать, ты стал беднее, а не богаче. И речь не только о деньгах: выгода — это всё, чем ты сможешь воспользоваться завтра. Поэтому сначала спроси, сколько дорог останется после решения.</p>
+            <h3><u>Future Benefit Matters More Than Immediate Gain</u></h3>
+            <p>A good choice is one that leaves you with more options, not fewer. Sometimes today’s gain consumes tomorrow’s: selling a tool to buy food may genuinely be necessary, but if you can no longer work afterward, you have become poorer, not richer. And this is not just about money: benefit is anything you will be able to use tomorrow. So first ask how many paths will remain after the decision.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3><u>Люди — не стадо</u></h3>
-            <p>Один человек не заменяет другого: даже если тому, кто придёт на его место, станет лучше, это будет другая жизнь, а не та же самая. Поэтому нельзя сказать «в среднем всем стало лучше», если кто-то при этом потерял всё: дом не вернётся оттого, что у соседей прибыло. Итог считают по именам, а не по среднему. Люди — не население, не ресурс и не единица в отчёте.</p>
+            <h3><u>People Are Not a Herd</u></h3>
+            <p>One person cannot replace another: even if the person who takes their place is better off, that is a different life, not the same one. So we cannot say “everyone is better off on average” if someone has lost everything: a house does not come back just because the neighbours have gained. The outcome is counted by name, not by average. People are not a population figure, a resource, or a unit in a report.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3><u>Только благо для каждого имеет смысл</u></h3>
-            <p>Нельзя устраивать своё будущее, отняв чужое. И «так будет лучше для всех» этого не оправдывает: для того, у кого отняли, лучше не стало. Здесь не про мораль и не про то, кто хороший, а про простую арифметику: в таком обмене считать нечего, кроме потери. Даже согласие не помогает — если человек готов отдать своё будущее, потеря всё равно остаётся потерей. Единственное исключение — тот, кто преднамеренно разрушает чужие возможности (жизнь, здоровье, ограничивает свободу действий): его останавливают и убирают из общей игры, а не «пересчитывают» в общем итоге.</p>
+            <h3><u>Only What Benefits Each Person Counts</u></h3>
+            <p>You cannot build your future by taking someone else’s away. And “this will be better for everyone” does not justify it: things have not become better for the person who lost out. This is not about morality or who is good; it is simple arithmetic: in such an exchange, all that remains to count is the loss. Consent does not make the loss disappear either—even if someone is willing to give up their future, the loss is still a loss. The sole exception is someone who deliberately destroys other people’s possibilities (their life, health, or freedom to act): they must be stopped and removed from the shared game, not simply “counted” in the overall result.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3><u>Не делай непоправимого</u></h3>
-            <p>Если выбирать между двумя примерно равными решениями — бери то, которое можно отменить. Ошибиться не страшно: ошибку признают и исправляют. А вот срубленное дерево, разрушенный город или отданное навсегда право вернуть нельзя. Поэтому непоправимое делают только тогда, когда без него теряется заметно больше, чем оно стоит.</p>
+            <h3><u>Do Not Do What Cannot Be Undone</u></h3>
+            <p>When choosing between two roughly equal options, take the one that can be reversed. Making a mistake is not the end of the world: admit it and correct it. But a felled tree, a destroyed city, or a right surrendered forever cannot simply be restored. So take an irreversible action only when not taking it would cause a much greater loss than the action itself.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3><u>Незнание — это не «пустота», а повод к исследованию</u></h3>
-            <p>Чего мы не знаем — того мы не знаем. Это не значит ни «там ничего нет», ни «там всё хорошо»: неизвестное нельзя посчитать ни нулём, ни мечтой, оно не говорит ничего. Поэтому незнакомое не списывают и на незнакомом не выгадывают. А если решение зависит от того, чего мы не знаем, — сначала узнай, потом решай.</p>
+            <h3><u>The Unknown Is Not “Nothing”—It Is a Reason to Investigate</u></h3>
+            <p>What we do not know is simply what we do not know. That does not mean “there is nothing there” or “everything is fine”: the unknown cannot be counted as zero or treated as a dream; it tells us nothing. So we do not dismiss what is unfamiliar, and we do not try to profit from it. If a decision depends on something we do not know, find out first, then decide.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3><u>Свободу не отбирают — её приумножают</u></h3>
-            <p>Свобода — не пирог, который можно только делить. Когда кто-то придумывает новое — лекарство, дорогу, инструмент, — возможностей становится больше у всех, и никому не приходится терять. Поэтому хорош тот ход, который создаёт, а не отнимает. И важно не количество, а то, что работает: десять дорог в тупик — не свобода, одна дорога к людям — свобода.</p>
+            <h3><u>Freedom Is Not Taken Away—It Is Expanded</u></h3>
+            <p>Freedom is not a pie that can only be divided. When someone creates something new—a medicine, a road, a tool—possibilities increase for everyone, and no one has to lose theirs. So a good move creates rather than takes away. And what matters is not the number of options, but whether they work: ten roads leading nowhere are not freedom; one road leading to other people is freedom.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3><u>Непонимание другого — это путь к диалогу, а не к игнорированию</u></h3>
-            <p>Если мы кого-то не понимаем, это не значит, что он плохой и его можно списать. Непонятное — это вопрос, а не приговор: пока мы не разобрались, у нас нет ни одного довода против него, кроме того, что мы его не знаем. Поэтому непонимание — повод поговорить и выяснить, а не повод отменить.</p>
+            <h3><u>Not Understanding Someone Is a Reason for Dialogue, Not for Ignoring Them</u></h3>
+            <p>If we do not understand someone, that does not mean they are bad or can be written off. What we do not understand is a question, not a verdict: until we have looked into it, we have no reason to reject them other than the fact that we do not know them. So misunderstanding is a reason to talk and find out—not a reason to dismiss them.</p>
           </div>
         </li>
       </ol>
     </section>
-
     <section>
-      <h2>Источник и обоснование</h2>
-      <p>Это не придуманные принципы. Они взяты из открытого стандарта <strong>DOF-CORE</strong>, где свобода записана как измеримая величина. Считается не «уровень свободы в стране», а число реальных путей у конкретного человека, города, компании или машины. Там же — жёсткое правило о смерти: вариант, который кого-то уничтожает, при прогнозировании к сравнению с остальными не допускается вообще.</p>
-      <p class="note">Математика живёт в DOF-CORE вместе с формулами и доказательствами — здесь только её следствия для обычной жизни.</p>
-      <p>В это не обязательно просто верить. Текст стандарта открыт, у него есть версия и отпечаток; четыре независимые реализации проходят общую проверку; а лицензия запрещает применение «чёрным ящиком» — любое использование обязано показать, как посчитано решение. Код, документы и математика: <a href="https://github.com/UncleAndy/dof-core">github.com/UncleAndy/dof-core</a>.</p>
+      <h2>Source and Rationale</h2>
+      <p>These principles were not invented from scratch. They come from the open <strong>DOF-CORE</strong> standard, where freedom is expressed as a measurable quantity. The aim is not to calculate a “freedom level” for an entire country, but to consider the real paths available to a particular person, city, company, or machine. The standard also sets a strict rule concerning death: when predicting outcomes, an option that destroys someone is excluded from comparison with the others altogether.</p>
+      <p class="note">The mathematics, formulas, and proofs live in DOF-CORE—here, we present only their implications for everyday life.</p>
+      <p>You do not have to take this on faith. The standard is open, versioned, and fingerprinted; four independent implementations pass a shared test suite; and the licence prohibits “black-box” use—any application must show how a decision was calculated. Code, documents, and mathematics: <a href="https://github.com/UncleAndy/dof-core">github.com/UncleAndy/dof-core</a>.</p>
     </section>
-
     <section>
-      <h2>Что с этим делать</h2>
-      <p>Сколько у меня на самом деле путей — и сколько из них живых? Что я смогу отменить, если ошибусь? И не выигрываю ли я за счёт того, что кто-то другой теряет своё навсегда?</p>
-      <p>Последний вопрос неприятный, и в этом весь смысл. Если ответ «да», считать нечего: по этому счёту такого выигрыша не существует.</p>
+      <h2>What Can We Do With This?</h2>
+      <p>How many paths do I really have—and how many of them are viable? What will I be able to undo if I am wrong? And am I winning at the cost of someone else losing something they can never get back?</p>
+      <p>The last question is uncomfortable, and that is the point. If the answer is “yes,” there is nothing to count: by this measure, that kind of gain does not exist.</p>
     </section>
-
   </main>
-
   <footer>
-    <p>© 2026 Andrei Velikoredchanin. CC BY-SA 4.0 — используйте, переводите, развивайте, указывая автора и сохраняя ту же лицензию.</p>
-    <p>Подробности, математика и доказательства — в стандарте <a href="https://github.com/UncleAndy/dof-core">DOF-CORE</a>.</p>
+    <p>© 2026 Andrei Velikoredchanin. CC BY-SA 4.0 — use, translate, and develop this work, crediting the author and preserving the same licence.</p>
+    <p>Details, mathematics, and proofs are available in the <a href="https://github.com/UncleAndy/dof-core">DOF-CORE standard</a>.</p>
   </footer>
-
 </div>
 </body>
 </html>
